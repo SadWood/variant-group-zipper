@@ -1,17 +1,18 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-
-function unzipText(text: string): string {
-	return text.replace(/(\w+):(\((.*?)\))/g, (_match, p1: string, _p2: string, p3: string) => {
-		return p3.split(' ').map(s => `${p1}:${s}`).join(' ');
-	});
+export function unzipText(text: string): string {
+	return text.replace(
+		/(\w+):(\((.*?)\))/g,
+		(_match, p1: string, _p2: string, p3: string) => {
+			return p3
+				.split(' ')
+				.map(s => `${p1}:${s}`)
+				.join(' ');
+		}
+	);
 }
 
-function zipText(text: string): string {
+export function zipText(text: string): string {
 	let prefixMap = new Map<string, string[]>();
 	let words = text.split(' ');
 
@@ -62,5 +63,4 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(unzipCommand, zipCommand);
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() { }

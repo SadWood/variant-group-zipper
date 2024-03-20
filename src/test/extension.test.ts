@@ -1,15 +1,18 @@
 import * as assert from 'assert';
-
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
-import * as vscode from 'vscode';
-// import * as myExtension from '../../extension';
+import { unzipText, zipText } from '../extension';
 
 suite('Extension Test Suite', () => {
-	vscode.window.showInformationMessage('Start all tests.');
+	test('unzipText', () => {
+		let input = 'md:(text-white/75 bg-gray-50 border-l-1 border-[#2FCAF9])';
+		let expected = 'md:text-white/75 md:bg-gray-50 md:border-l-1 md:border-[#2FCAF9]';
+		let actual = unzipText(input);
+		assert.strictEqual(actual, expected);
+	});
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
+	test('zipText', () => {
+		let input = 'md:text-white/75 md:bg-gray-50 md:border-l-1 md:border-[#2FCAF9]';
+		let expected = 'md:(text-white/75 bg-gray-50 border-l-1 border-[#2FCAF9])';
+		let actual = zipText(input);
+		assert.strictEqual(actual, expected);
 	});
 });

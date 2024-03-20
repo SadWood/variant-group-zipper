@@ -1,71 +1,27 @@
-# variant-group-zipper README
+# Variant Group Zipper VS Code Extension
 
-This is the README for your extension "variant-group-zipper". After writing up a brief description, we recommend including the following sections.
+## 简介
 
-## Features
+Variant Group Zipper 是一个 VS Code 扩展，它提供了两个命令：`vgz.unzip`和`vgz.zip`，用于处理文本中的特定格式。
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## 功能
 
-For example if there is an image subfolder under your extension project workspace:
+- `vgz.unzip`：这个命令会找到选中的文本中所有匹配`(\w+):(\((.*?)\))`正则表达式的部分，并将其转换为`${p1}:${s}`的格式，其中`p1`是匹配的第一部分，`s`是匹配的第三部分中的每个空格分隔的子字符串。
 
-\!\[feature X\]\(images/feature-x.png\)
+- `vgz.zip`：这个命令会将选中的文本分割成单词，然后将每个单词分割成前缀和剩余部分。对于每个前缀，它会收集所有相同前缀的剩余部分，并将其转换为`${prefix}:(${values.join(' ')})`的格式，其中`values`是所有相同前缀的剩余部分。
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## 如何使用
 
-## Requirements
+1. 在 VS Code 中打开你想要处理的文件。
+2. 选择你想要处理的文本。
+3. 执行`vgz.unzip`或`vgz.zip`命令。
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## 已知问题
 
-## Extension Settings
+如果你遇到任何问题，请在 GitHub 上提交一个 issue。
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## 发布说明
 
-For example:
+### 0.1.0
 
-This extension contributes the following settings:
-
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-- [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-- Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-- Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- 初始发布，包含`vgz.unzip`和`vgz.zip`两个命令。
