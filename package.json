@@ -38,7 +38,10 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "version:major": "npm version major -m '升级到 %s 版本'",
+    "version:minor": "npm version minor -m '升级到 %s 版本'",
+    "version:patch": "npm version patch -m '升级到 %s 版本'"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
