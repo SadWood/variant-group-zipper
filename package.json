@@ -2,6 +2,11 @@
   "name": "variant-group-zipper",
   "displayName": "Variant Group Zipper",
   "description": "Seamlessly zips and unzip variant groups.",
+  "publisher": "AKA-Whirlwind",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SadWood/variant-group-zipper"
+  },
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.87.0"
