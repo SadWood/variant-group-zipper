@@ -41,7 +41,8 @@
     "test": "vscode-test",
     "version:major": "npm version major -m '升级到 %s 版本'",
     "version:minor": "npm version minor -m '升级到 %s 版本'",
-    "version:patch": "npm version patch -m '升级到 %s 版本'"
+    "version:patch": "npm version patch -m '升级到 %s 版本'",
+    "vsix": "vsce package"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
